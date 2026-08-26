@@ -1332,6 +1332,19 @@ button{font:inherit;cursor:pointer}
   .t3 .mapcard,.t3 .mapcard:hover{transition:none; transform:none}
   .t3 .mapgo:hover .ar{transform:none}
 }
+
+/* ---- image framing ------------------------------------------------------
+   The template gives every card photo a fixed 190px strip, which at desktop
+   width is a 2.7:1 letterbox. A normal landscape photo loses 45% of itself in
+   that slot and a portrait one loses 76%. Give the slot a sane aspect ratio,
+   and show tall photos whole rather than cropping them to a band. */
+.t3 .svccard .shot{height:auto; aspect-ratio:3/2}
+.t3 .svccard .shot.tall{background:#F1EAD9}
+.t3 .svccard .shot.tall img{object-fit:contain; padding:12px}
+.t3 .heroA .shot.tall{background:#F1EAD9}
+.t3 .heroA .shot.tall img{object-fit:contain; padding:16px}
+@media(max-width:940px){ .t3 .svccard .shot{height:auto; aspect-ratio:3/2} }
+@media(max-width:560px){ .t3 .svccard .shot{aspect-ratio:3/2} }
 </style>
 </head>
 <body>
@@ -1576,6 +1589,20 @@ const LIVE_URLS = {
 function svcUrl(svc, L){
   if (L && L.key === 'sc') return 'https://smyledentist.com/santa-clarita/';
   return LIVE_URLS[svc.s] || 'https://smyledentist.com/bakersfield/';
+}
+
+/* Photos vary between landscape and portrait. A fixed wide slot crops a tall
+   photo to a strip, so tag those and show them whole instead of cropping. */
+function fitShots(){
+  document.querySelectorAll('#stage .svccard .shot, #stage .heroA .shot').forEach(function(box){
+    var im = box.querySelector('img');
+    if (!im) return;
+    var apply = function(){
+      if (!im.naturalWidth) return;
+      box.classList.toggle('tall', (im.naturalWidth / im.naturalHeight) < 1.1);
+    };
+    if (im.complete) apply(); else im.addEventListener('load', apply, {once:true});
+  });
 }
 /* Keyless Google Maps embed built from the address already in OFFICES. */
 function mapEmbed(L){
@@ -1960,6 +1987,7 @@ function mount(){
     document.querySelectorAll('#stage .mk').forEach(m => m.insertAdjacentHTML('beforeend', MARK_SVG));
     syncSvcPreview();
     drawMarks();
+    fitShots();
     window.scrollTo(0, 0);
   });
 }
