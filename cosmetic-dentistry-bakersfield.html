@@ -1345,6 +1345,46 @@ button{font:inherit;cursor:pointer}
 .t3 .heroA .shot.tall img{object-fit:contain; padding:16px}
 @media(max-width:940px){ .t3 .svccard .shot{height:auto; aspect-ratio:3/2} }
 @media(max-width:560px){ .t3 .svccard .shot{aspect-ratio:3/2} }
+
+/* ---- new patient offer, presented as a coupon card ---------------------- */
+.t3 .offerband .offercard{
+  width:min(360px,100%); background:#17140F;
+  border:2px solid var(--yellow); border-radius:22px; overflow:hidden;
+  box-shadow:0 18px 46px rgba(0,0,0,.34);
+}
+.t3 .offerband .offercard .oc-lab{
+  font-family:"Nunito Sans",sans-serif; font-size:12.5px; font-weight:800;
+  letter-spacing:.17em; text-transform:uppercase; color:rgba(250,247,241,.72);
+  text-align:center; margin:26px 0 2px;
+}
+.t3 .offerband .offercard .oc-amt{
+  font-family:Fraunces,Georgia,serif; font-weight:600; color:var(--yellow);
+  font-size:clamp(58px,6vw,96px); line-height:.92; letter-spacing:-.05em;
+  text-align:center; margin:0 0 24px;
+}
+.t3 .offerband .offercard .oc-amt .cur{font-size:.52em; vertical-align:.34em; margin-right:2px}
+.t3 .offerband .offercard .oc-list{
+  list-style:none; margin:0; padding:0 26px 26px;
+  display:flex; flex-direction:column; gap:13px;
+}
+.t3 .offerband .offercard .oc-list li{
+  position:relative; padding-left:30px; font-size:15px; line-height:1.5; color:var(--cream);
+}
+.t3 .offerband .offercard .oc-list li::before{
+  content:"¹3"; position:absolute; left:0; top:-1px;
+  color:var(--yellow); font-weight:800; font-size:16px;
+}
+.t3 .offerband .offercard .oc-foot{
+  background:var(--yellow); border-top:2px dashed rgba(30,27,22,.38); padding:15px 26px 17px;
+}
+.t3 .offerband .offercard .oc-foot span{
+  display:block; font-size:11.5px; font-weight:800; letter-spacing:.13em;
+  text-transform:uppercase; color:rgba(30,27,22,.74); margin-bottom:3px;
+}
+.t3 .offerband .offercard .oc-foot b{
+  display:block; font-size:16px; font-weight:800; color:var(--ink3); letter-spacing:-.01em;
+}
+@media(max-width:940px){ .t3 .offerband .offercard{width:100%; max-width:420px} }
 </style>
 </head>
 <body>
@@ -1927,7 +1967,19 @@ function spRest(L, other){
           <a class="btn btn-line" href="${L.href}">Call ${L.tel}</a>
         </div>
       </div>
-      <div class="amt">$99<small>New patient exam</small></div>
+      <div class="offercard">
+        <p class="oc-lab">New patient exam</p>
+        <div class="oc-amt"><span class="cur">$</span>99</div>
+        <ul class="oc-list">
+          <li>Comprehensive exam</li>
+          <li>A full set of x-rays</li>
+          <li>You and Dr. Zaghi see the same picture first</li>
+        </ul>
+        <div class="oc-foot">
+          <span>Mention this offer when you book</span>
+          <b>${L.name}</b>
+        </div>
+      </div>
     </div>
   </section>
 
