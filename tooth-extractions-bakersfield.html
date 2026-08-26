@@ -1341,8 +1341,14 @@ button{font:inherit;cursor:pointer}
 .t3 .svccard .shot{height:auto; aspect-ratio:3/2}
 .t3 .svccard .shot.tall{background:#F1EAD9}
 .t3 .svccard .shot.tall img{object-fit:contain; padding:12px}
+/* The hero has no fixed height in the template, so its row is sized by the
+   photo's own proportions. A portrait photo made the Invisalign hero 933px tall
+   against 475px elsewhere. Pin the hero to one ratio so every page opens the
+   same, and keep the hero on cover: a banner should fill its frame, unlike the
+   card thumbnails where a contained photo reads as a product shot. */
+.t3 .heroA .shot{height:auto; aspect-ratio:3/2}
 .t3 .heroA .shot.tall{background:#F1EAD9}
-.t3 .heroA .shot.tall img{object-fit:contain; padding:16px}
+.t3 .heroA .shot.tall img{object-fit:cover; padding:0; object-position:50% 38%}
 @media(max-width:940px){ .t3 .svccard .shot{height:auto; aspect-ratio:3/2} }
 @media(max-width:560px){ .t3 .svccard .shot{aspect-ratio:3/2} }
 
