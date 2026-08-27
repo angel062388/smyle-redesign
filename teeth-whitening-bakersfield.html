@@ -1339,8 +1339,13 @@ button{font:inherit;cursor:pointer}
    that slot and a portrait one loses 76%. Give the slot a sane aspect ratio,
    and show tall photos whole rather than cropping them to a band. */
 .t3 .svccard .shot{height:auto; aspect-ratio:3/2}
-.t3 .svccard .shot.tall{background:#F1EAD9}
-.t3 .svccard .shot.tall img{object-fit:contain; padding:12px}
+.t3 .svccard .shot.tall{position:relative; background:#F1EAD9}
+.t3 .svccard .shot.tall::before{
+  content:""; position:absolute; inset:0; z-index:0;
+  background-image:var(--fill); background-size:cover; background-position:center;
+  filter:blur(26px) saturate(1.08); transform:scale(1.2); opacity:.6;
+}
+.t3 .svccard .shot.tall img{position:relative; z-index:1; object-fit:contain; padding:10px}
 /* The hero has no fixed height in the template, so its row is sized by the
    photo's own proportions. A portrait photo made the Invisalign hero 933px tall
    against 475px elsewhere. Pin the hero to one ratio so every page opens the
@@ -1643,7 +1648,12 @@ function fitShots(){
     if (!im) return;
     var apply = function(){
       if (!im.naturalWidth) return;
-      box.classList.toggle('tall', (im.naturalWidth / im.naturalHeight) < 1.1);
+      var tall = (im.naturalWidth / im.naturalHeight) < 1.1;
+      box.classList.toggle('tall', tall);
+      /* a tall photo in a wide frame leaves bars either side. Fill them with a
+         blurred copy of the photo itself so the card reads as one image. */
+      if (tall) box.style.setProperty('--fill', 'url("' + im.currentSrc + '")');
+      else box.style.removeProperty('--fill');
     };
     if (im.complete) apply(); else im.addEventListener('load', apply, {once:true});
   });
