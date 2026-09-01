@@ -1,0 +1,80 @@
+/* ==========================================================================
+   Smyle Dental — contact page
+   Inline booking form beside the two office cards, then the shared office
+   map cards at full width. The split hero comes from service.css and the
+   form card borrows the booking dialog's field styling (.bk).
+   ========================================================================== */
+
+/* ---------------------------------------------------------- book block -- */
+.bookwrap {
+  display: grid;
+  grid-template-columns: 1.25fr .9fr;
+  gap: 24px;
+  align-items: start;
+  margin-top: 10px;
+}
+
+/* The dialog card, inlined: same fields, same inputs, page-flow shell. */
+.formcard {
+  width: 100%;
+  max-width: none;
+  max-height: none;
+  overflow: visible;
+  animation: none;
+  border: 1px solid rgba(30, 27, 22, .10);
+  box-shadow: 0 10px 30px rgba(30, 27, 22, .06);
+}
+
+/* -------------------------------------------------------- office cards -- */
+.officeaside { display: grid; gap: 18px; }
+.octa {
+  background: #fff;
+  border: 1px solid rgba(30, 27, 22, .10);
+  border-radius: 22px;
+  padding: 24px 26px;
+  box-shadow: 0 10px 30px rgba(30, 27, 22, .06);
+}
+.octa h4 {
+  font-family: Fraunces, Georgia, serif;
+  font-weight: 600;
+  font-size: 19px;
+  letter-spacing: -.02em;
+  color: var(--ink3);
+  margin: 0 0 6px;
+  line-height: 1.2;
+}
+.octa .addr { font-size: 14px; color: var(--mid); line-height: 1.5; margin: 0 0 8px; }
+.octa .maptel { display: inline-block; }
+.octa .hrslist { list-style: none; margin: 14px 0 18px; padding: 0; }
+.octa .hrslist li {
+  font-size: 13.5px;
+  color: var(--mid);
+  line-height: 1.5;
+  padding: 5px 0;
+  border-bottom: 1px solid rgba(30, 27, 22, .08);
+}
+.octa .hrslist li:last-child { border-bottom: 0; }
+.octa .hrslist b { color: var(--ink3); font-weight: 700; }
+.octa .btn { width: 100%; justify-content: center; }
+
+/* ------------------------------------------------------------ maps row -- */
+.findus-wide .maps {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 10px;
+}
+
+/* ------------------------------------------------------------ responsive -- */
+@media (max-width: 1000px) {
+  .bookwrap { grid-template-columns: 1fr; }
+  .officeaside { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 900px) {
+  .findus-wide .maps { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 560px) {
+  .officeaside { grid-template-columns: 1fr; }
+}
