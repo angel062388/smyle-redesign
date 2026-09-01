@@ -921,6 +921,18 @@
 .mapgo .ar { transition: transform .18s var(--e-out); }
 .mapgo:hover .ar { transform: translateX(3px); }
 
+/* Full-width pair of map cards (Contact, Our Locations). */
+.findus-wide .maps {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22px;
+  margin-top: 10px;
+}
+
+@media (max-width: 900px) {
+  .findus-wide .maps { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 560px) {
   .mapcard iframe { height: 220px; }
   .mapbar { flex-direction: column; align-items: flex-start; }

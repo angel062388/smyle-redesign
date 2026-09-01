@@ -57,22 +57,13 @@
 .octa .hrslist b { color: var(--ink3); font-weight: 700; }
 .octa .btn { width: 100%; justify-content: center; }
 
-/* ------------------------------------------------------------ maps row -- */
-.findus-wide .maps {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 22px;
-  margin-top: 10px;
-}
+/* The full-width maps row (.findus-wide .maps) is shared with Our
+   Locations and lives in components.css. */
 
 /* ------------------------------------------------------------ responsive -- */
 @media (max-width: 1000px) {
   .bookwrap { grid-template-columns: 1fr; }
   .officeaside { grid-template-columns: 1fr 1fr; }
-}
-
-@media (max-width: 900px) {
-  .findus-wide .maps { grid-template-columns: 1fr; }
 }
 
 @media (max-width: 560px) {

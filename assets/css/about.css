@@ -4,11 +4,6 @@
    hero comes from service.css; everything else reuses the shared components.
    ========================================================================== */
 
-/* Mark the page the visitor is on. layout.css draws the underline on hover;
-   here it stays drawn. */
-.nav-main a[aria-current="page"] { color: var(--ink3); }
-.nav-main a[aria-current="page"]::after { right: 0; }
-
 /* ------------------------------------------------------------- story -- */
 /* The card runs taller than the copy, so the copy centers against it the way
    the doctor quote centers its portrait. The pill row under the last paragraph

@@ -3,14 +3,14 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Schedule an Appointment | Smyle Dental</title>
+<title>Our Locations: Bakersfield &amp; Newhall | Smyle Dental</title>
 <meta name="robots" content="noindex,nofollow">
-<meta name="description" content="Schedule your visit at Smyle Dental in Bakersfield or Santa Clarita. Fill out the form and we will contact you to confirm a time that fits your schedule.">
-<link rel="canonical" href="https://smyledentist.com/contact/">
+<meta name="description" content="Smyle Dental's two offices: Bakersfield on E Street and Newhall on Newhall Avenue in Santa Clarita. Addresses, phone numbers, hours and directions.">
+<link rel="canonical" href="https://smyledentist.com/our-locations/">
 <meta property="og:type" content="website">
-<meta property="og:title" content="Schedule an Appointment | Smyle Dental">
-<meta property="og:description" content="Schedule your visit at Smyle Dental in Bakersfield or Santa Clarita. Fill out the form and we will contact you to confirm a time that fits your schedule.">
-<meta property="og:url" content="https://smyledentist.com/contact/">
+<meta property="og:title" content="Our Locations: Bakersfield &amp; Newhall | Smyle Dental">
+<meta property="og:description" content="Smyle Dental's two offices: Bakersfield on E Street and Newhall on Newhall Avenue in Santa Clarita. Addresses, phone numbers, hours and directions.">
+<meta property="og:url" content="https://smyledentist.com/our-locations/">
 <meta property="og:image" content="https://smyledentist.com/assets/images/practice-hero.jpg">
 <meta name="theme-color" content="#FAF7F1">
 <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
@@ -22,7 +22,6 @@
 <link rel="stylesheet" href="assets/css/layout.css">
 <link rel="stylesheet" href="assets/css/components.css">
 <link rel="stylesheet" href="assets/css/service.css">
-<link rel="stylesheet" href="assets/css/contact.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Dentist","name":"Smyle Dental Newhall","parentOrganization":{"@type":"Organization","name":"Smyle Dental"},"address":{"@type":"PostalAddress","streetAddress":"23754 Newhall Ave","addressLocality":"Santa Clarita","addressRegion":"CA","postalCode":"91321","addressCountry":"US"},"telephone":"+1-661-255-9200","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:00"}],"employee":{"@type":"Person","name":"David Zaghi, DDS","jobTitle":"Dentist"}},{"@type":"Dentist","name":"Smyle Dental Bakersfield","parentOrganization":{"@type":"Organization","name":"Smyle Dental"},"address":{"@type":"PostalAddress","streetAddress":"2016 E Street","addressLocality":"Bakersfield","addressRegion":"CA","postalCode":"93301","addressCountry":"US"},"telephone":"+1-661-493-9040","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"09:00","closes":"18:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"09:00","closes":"13:00"}],"employee":{"@type":"Person","name":"David Zaghi, DDS","jobTitle":"Dentist"}}]}</script>
 </head>
 <body>
@@ -37,7 +36,7 @@
         <a href="about-us.html">About</a>
         <span class="drop"><a href="#" aria-haspopup="true">Services<i class="cv">&#9662;</i></a><span class="menu"><span class="navcard"><p class="city">Bakersfield</p><a href="service.html">Emergency Dentistry</a></span></span></span>
         <a href="about-us.html#doctor">Doctors</a>
-        <a href="our-locations.html">Locations</a>
+        <a href="our-locations.html" aria-current="page">Locations</a>
         <a href="#offer">Pricing</a>
         <a href="#">Blog</a>
     </nav>
@@ -52,15 +51,15 @@
 
   <section class="heroA">
     <div class="shot">
-      <span class="mark">Same-day emergency slots</span>
+      <span class="mark">Two offices, one dentist</span>
       <img src="assets/images/practice-hero.jpg" alt="A smiling woman in front of the Smyle lettering on the practice wall" width="1500" height="844" fetchpriority="high">
     </div>
     <div class="panel">
-      <p class="crumb"><a href="index.html">Smyle Dental</a> &#47; <b>Contact</b></p>
-      <h1>Schedule an <em>appointment</em></h1>
-      <p class="lede">We know your time is valuable, so we have made scheduling easy at both offices, in Bakersfield and Santa Clarita. Fill out the form below and we will contact you to confirm a time that is perfect for your schedule.</p>
+      <p class="crumb"><a href="index.html">Smyle Dental</a> &#47; <b>Our Locations</b></p>
+      <h1>Two offices, <em>two cities</em></h1>
+      <p class="lede">Each office has its own team, its own phone line and its own booking, so you always reach the people who will be treating you. Book whichever is closer, or move between them.</p>
       <div class="spacts">
-        <a class="btn btn-y" href="#book">Book a visit</a>
+        <button class="btn btn-y" type="button" data-book>Book a visit</button>
         <a class="btn btn-line" href="tel:+16612559200">Call Santa Clarita</a>
         <a class="btn btn-line" href="tel:+16614939040">Call Bakersfield</a>
       </div>
@@ -90,61 +89,39 @@
     </div>
   </section>
 
-  <section class="section section--rule" id="book">
+  <section class="section section--rule" id="locations">
     <div class="container">
-      <p class="eyebrow">Book a visit</p>
-      <h2>Tell us how to <em>reach you</em></h2>
-      <div class="bookwrap">
-        <div class="bk formcard" id="ctCard">
-          <h3>Schedule your visit</h3>
-          <p class="sub">Tell us how to reach you and we will confirm by phone. We file your insurance claims for you.</p>
-          <form id="ctForm" novalidate>
-            <p class="err" id="ctErrors" role="alert"></p>
-            <div class="row">
-              <div class="f"><label for="ctFirst">First name</label><input id="ctFirst" name="first" autocomplete="given-name" required></div>
-              <div class="f"><label for="ctLast">Last name</label><input id="ctLast" name="last" autocomplete="family-name" required></div>
-            </div>
-            <div class="f">
-              <label for="ctLoc">Please choose a location</label>
-              <select id="ctLoc" name="office">
-                <option value="sc" data-label="Santa Clarita">Santa Clarita, 23754 Newhall Ave</option>
-                <option value="bk" data-label="Bakersfield">Bakersfield, 2016 E Street</option>
-              </select>
-            </div>
-            <div class="f"><label for="ctPhone">Phone</label><input id="ctPhone" name="phone" type="tel" autocomplete="tel" placeholder="(661) 000-0000" required></div>
-            <div class="row">
-              <div class="f"><label for="ctEmail">Enter email</label><input id="ctEmail" name="email" type="email" autocomplete="email" required></div>
-              <div class="f"><label for="ctEmail2">Confirm email</label><input id="ctEmail2" name="email_confirm" type="email" required></div>
-            </div>
-            <div class="f"><label for="ctMsg">Comments</label><textarea id="ctMsg" name="comments" placeholder="Please let us know what's on your mind. Have a question for us? Ask away."></textarea></div>
-            <label class="agree"><input type="checkbox" id="ctOk" name="consent"><span>I agree to the privacy policy.</span></label>
-            <button class="go" type="submit">Request my appointment</button>
-            <p class="note">We answer during office hours, Monday to Friday. If you are in pain today, call the office nearest you.</p>
-          </form>
+      <p class="eyebrow">Our offices</p>
+      <h2>Pick the office <em>closer to you</em></h2>
+      <div class="locs">
+      <article class="loc">
+        <img class="clinic" src="assets/images/office-santa-clarita.jpg" alt="Smyle Dental Santa Clarita" width="667" height="250" loading="lazy">
+        <div class="bd">
+          <h3>Santa Clarita</h3>
+          <p class="meta">23754 Newhall Ave<br>Santa Clarita, CA 91321</p>
+          <p class="meta"><b>(661) 255-9200</b></p>
+          <p class="meta"><b>4.9</b> stars from 110 Google reviews</p>
+          <span class="hrs">Mon to Fri, 9am to 6pm</span>
+          <div class="acts">
+            <button class="btn btn-ink" type="button" data-book data-book-office="sc">Book a visit</button>
+            <a class="btn btn-line" href="https://maps.google.com/?q=23754+Newhall+Ave+Santa+Clarita+CA+91321" target="_blank" rel="noopener">Directions</a>
+          </div>
         </div>
-        <aside class="officeaside" aria-label="Office contact details">
-          <div class="octa">
-            <h4>Smyle Dental Newhall</h4>
-            <p class="addr">23754 Newhall Ave<br>Santa Clarita, CA 91321</p>
-            <a class="maptel" href="tel:+16612559200">(661) 255-9200</a>
-            <ul class="hrslist">
-              <li><b>Mon to Fri:</b> 9am to 6pm</li>
-              <li><b>Sat and Sun:</b> Closed</li>
-            </ul>
-            <a class="btn btn-line btn-sm" href="tel:+16612559200">Call Santa Clarita</a>
+      </article>
+      <article class="loc">
+        <img class="clinic" src="assets/images/office-bakersfield.jpg" alt="Smyle Dental Bakersfield" width="900" height="675" loading="lazy">
+        <div class="bd">
+          <h3>Bakersfield</h3>
+          <p class="meta">2016 E Street<br>Bakersfield, CA 93301</p>
+          <p class="meta"><b>(661) 493-9040</b></p>
+          <p class="meta"><b>4.9</b> stars from 822 Google reviews</p>
+          <span class="hrs">Mon to Thu 9am to 6pm, Fri 9am to 1pm</span>
+          <div class="acts">
+            <button class="btn btn-ink" type="button" data-book data-book-office="bk">Book a visit</button>
+            <a class="btn btn-line" href="https://maps.google.com/?q=2016+E+Street+Bakersfield+CA+93301" target="_blank" rel="noopener">Directions</a>
           </div>
-          <div class="octa">
-            <h4>Smyle Dental Bakersfield</h4>
-            <p class="addr">2016 E Street<br>Bakersfield, CA 93301</p>
-            <a class="maptel" href="tel:+16614939040">(661) 493-9040</a>
-            <ul class="hrslist">
-              <li><b>Mon to Thu:</b> 9am to 6pm</li>
-              <li><b>Fri:</b> 9am to 1pm</li>
-              <li><b>Sat and Sun:</b> Closed</li>
-            </ul>
-            <a class="btn btn-line btn-sm" href="tel:+16614939040">Call Bakersfield</a>
-          </div>
-        </aside>
+        </div>
+      </article>
       </div>
     </div>
   </section>
@@ -152,7 +129,7 @@
   <section class="section section--rule findus-wide" id="find-us">
     <div class="container">
       <p class="eyebrow">Find us</p>
-      <h2>Two offices, <em>two cities</em></h2>
+      <h2>Maps and <em>directions</em></h2>
       <div class="maps">
         <div class="mapcard">
           <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d58894.82348339017!2d-118.5155673!3d34.3721012!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c28676bab55691%3A0xa4b239ab87859f13!2sSmyle%20Dental%20Newhall!5e1!3m2!1sen!2sus!4v1787526161200!5m2!1sen!2sus" title="Map showing Smyle Dental Newhall, 23754 Newhall Ave, Santa Clarita, CA 91321" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
@@ -199,24 +176,24 @@
       </aside>
       <div class="faqlist">
         <details class="fq">
-          <summary><span class="num">1</span>Do you take my insurance?<span class="chev" aria-hidden="true">&#9662;</span></summary>
-          <p>You may be able to use your own dental insurance if you have a policy that allows you to choose your own dentist. If this is the case, we are happy to file your insurance claims for you so that you can be reimbursed by your insurance company. In addition to accepting cash and major credit cards, we work hand-in-hand with CareCredit Patient Payment Plans. CareCredit offers special financing options to patients at a reasonable rate through use of a CareCredit credit card. This credit card allows you to make easy monthly payments for dental treatments, rather than delaying treatment for financial reasons. Please contact our office for more details.</p>
+          <summary><span class="num">1</span>Which office should I go to?<span class="chev" aria-hidden="true">&#9662;</span></summary>
+          <p>Whichever is closer. Santa Clarita is on Newhall Avenue and is open Monday to Friday, 9am to 6pm. Bakersfield is on E Street and runs Monday to Thursday, 9am to 6pm and Friday, 9am to 1pm, with the same dentist and the same standard of care at both.</p>
         </details>
         <details class="fq">
-          <summary><span class="num">2</span>I am nervous about the dentist. What do you do differently?<span class="chev" aria-hidden="true">&#9662;</span></summary>
-          <p>We book first visits longer than a standard appointment so there is no rush, we explain each step before it happens, and we stop as soon as you signal. Nothing is done that you have not agreed to first.</p>
-        </details>
-        <details class="fq">
-          <summary><span class="num">3</span>Can you see me today if I am in pain?<span class="chev" aria-hidden="true">&#9662;</span></summary>
+          <summary><span class="num">2</span>Can you see me today if I am in pain?<span class="chev" aria-hidden="true">&#9662;</span></summary>
           <p>Both offices keep same-day slots for emergencies. Call the office nearest you as early in the day as you can and we will get you in.</p>
+        </details>
+        <details class="fq">
+          <summary><span class="num">3</span>Do you take my insurance?<span class="chev" aria-hidden="true">&#9662;</span></summary>
+          <p>You may be able to use your own dental insurance if you have a policy that allows you to choose your own dentist. If this is the case, we are happy to file your insurance claims for you so that you can be reimbursed by your insurance company. In addition to accepting cash and major credit cards, we work hand-in-hand with CareCredit Patient Payment Plans. CareCredit offers special financing options to patients at a reasonable rate through use of a CareCredit credit card. This credit card allows you to make easy monthly payments for dental treatments, rather than delaying treatment for financial reasons. Please contact our office for more details.</p>
         </details>
         <details class="fq">
           <summary><span class="num">4</span>What is the new patient special?<span class="chev" aria-hidden="true">&#9662;</span></summary>
           <p>A comprehensive exam and a full set of x-rays for $99, available at both Santa Clarita and Bakersfield. Mention it when you book.</p>
         </details>
         <details class="fq">
-          <summary><span class="num">5</span>Which office should I go to?<span class="chev" aria-hidden="true">&#9662;</span></summary>
-          <p>Whichever is closer. Santa Clarita is on Newhall Avenue and is open Monday to Friday, 9am to 6pm. Bakersfield is on E Street and runs Monday to Thursday, 9am to 6pm and Friday, 9am to 1pm, with the same dentist and the same standard of care at both.</p>
+          <summary><span class="num">5</span>I am nervous about the dentist. What do you do differently?<span class="chev" aria-hidden="true">&#9662;</span></summary>
+          <p>We book first visits longer than a standard appointment so there is no rush, we explain each step before it happens, and we stop as soon as you signal. Nothing is done that you have not agreed to first.</p>
         </details>
         <div class="fqcta">
           <div class="fqcta-t"><b>Still not sure?</b><span>Ask us before you book. Either office will answer.</span></div>
@@ -294,7 +271,7 @@
       <div>
         <h4>Patients</h4>
         <ul>
-          <li><a href="#book">Book an appointment</a></li>
+          <li><a href="contact.html">Book an appointment</a></li>
           <li><a href="#offer">New patient offer</a></li>
           <li><a href="#faq">Insurance &amp; payment</a></li>
           <li><a href="about-us.html#doctor">Meet Dr. Zaghi</a></li>
@@ -324,7 +301,7 @@
         <a href="service.html">Emergency Dentistry</a>
       </div>
       <a href="about-us.html#doctor">Doctors</a>
-      <a href="our-locations.html">Locations</a>
+      <a href="our-locations.html" aria-current="page">Locations</a>
       <a href="#offer">Pricing</a>
       <a href="#">Blog</a>
   </nav>
@@ -373,6 +350,5 @@
 
 <script type="application/json" id="officesData">{"sc":{"name":"Santa Clarita","gname":"Smyle Dental Newhall","addr":"23754 Newhall Ave","city":"Santa Clarita, CA 91321","tel":"(661) 255-9200","href":"tel:+16612559200"},"bk":{"name":"Bakersfield","gname":"Smyle Dental Bakersfield","addr":"2016 E Street","city":"Bakersfield, CA 93301","tel":"(661) 493-9040","href":"tel:+16614939040"}}</script>
 <script src="assets/js/site.js" defer></script>
-<script src="assets/js/contact.js" defer></script>
 </body>
 </html>

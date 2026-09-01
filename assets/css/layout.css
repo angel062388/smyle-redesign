@@ -57,6 +57,10 @@
 .nav-main a:hover { color: var(--ink3); }
 .nav-main a:hover::after { right: 0; }
 
+/* The page the visitor is on keeps its underline drawn. */
+.nav-main a[aria-current="page"] { color: var(--ink3); }
+.nav-main a[aria-current="page"]::after { right: 0; }
+
 /* Services is the one item with children. */
 .nav-main .drop { position: relative; display: inline-flex; }
 .nav-main .drop > a { display: inline-flex; align-items: center; gap: 5px; }
