@@ -16,12 +16,12 @@
 <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="assets/images/practice-hero.jpg" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,600;9..144,1,600&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/layout.css">
 <link rel="stylesheet" href="assets/css/components.css">
 <link rel="stylesheet" href="assets/css/service.css">
+<link rel="stylesheet" href="assets/css/home.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Dentist","name":"Smyle Dental Newhall","parentOrganization":{"@type":"Organization","name":"Smyle Dental"},"address":{"@type":"PostalAddress","streetAddress":"23754 Newhall Ave","addressLocality":"Santa Clarita","addressRegion":"CA","postalCode":"91321","addressCountry":"US"},"telephone":"+1-661-255-9200","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:00"}],"employee":{"@type":"Person","name":"David Zaghi, DDS","jobTitle":"Dentist"}},{"@type":"Dentist","name":"Smyle Dental Bakersfield","parentOrganization":{"@type":"Organization","name":"Smyle Dental"},"address":{"@type":"PostalAddress","streetAddress":"2016 E Street","addressLocality":"Bakersfield","addressRegion":"CA","postalCode":"93301","addressCountry":"US"},"telephone":"+1-661-493-9040","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"09:00","closes":"18:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"09:00","closes":"13:00"}],"employee":{"@type":"Person","name":"David Zaghi, DDS","jobTitle":"Dentist"}}]}</script>
 </head>
 <body>
@@ -49,16 +49,16 @@
 
 <main id="main">
 
-  <section class="heroA">
-    <div class="shot">
-      <span class="mark">Two offices, one dentist</span>
-      <img src="assets/images/practice-hero.jpg" alt="A smiling woman in front of the Smyle lettering on the practice wall" width="1500" height="844" fetchpriority="high">
+  <section class="hero">
+    <div class="fieldclip" aria-hidden="true">
+      <div class="field" id="heroField" data-photos='["assets/images/office-santa-clarita.jpg","assets/images/office-bakersfield.jpg","assets/images/practice-hero.jpg"]'></div>
     </div>
-    <div class="panel">
-      <p class="crumb"><a href="index.html">Smyle Dental</a> &#47; <b>Our Locations</b></p>
-      <h1>Two offices, <em>two cities</em></h1>
-      <p class="lede">Each office has its own team, its own phone line and its own booking, so you always reach the people who will be treating you. Book whichever is closer, or move between them.</p>
-      <div class="spacts">
+    <div class="scrim" aria-hidden="true"></div>
+    <div class="container">
+      <p class="kick">Your Smile Perfected</p>
+      <h1 id="heroHeadline">Two offices, <em>two cities</em></h1>
+      <p class="sub">Each office has its own team, its own phone line and its own booking, so you always reach the people who will be treating you. Book whichever is closer, or move between them.</p>
+      <div class="acts">
         <button class="btn btn-y" type="button" data-book>Book a visit</button>
         <a class="btn btn-line" href="tel:+16612559200">Call Santa Clarita</a>
         <a class="btn btn-line" href="tel:+16614939040">Call Bakersfield</a>
@@ -349,6 +349,8 @@
 </div>
 
 <script type="application/json" id="officesData">{"sc":{"name":"Santa Clarita","gname":"Smyle Dental Newhall","addr":"23754 Newhall Ave","city":"Santa Clarita, CA 91321","tel":"(661) 255-9200","href":"tel:+16612559200"},"bk":{"name":"Bakersfield","gname":"Smyle Dental Bakersfield","addr":"2016 E Street","city":"Bakersfield, CA 93301","tel":"(661) 493-9040","href":"tel:+16614939040"}}</script>
+<script type="application/json" id="fieldReviews">[{"name":"Natalie TvT","city":"Bakersfield","text":"I got my wisdom teeth removed here and it went great! Doctor Zaghi did such an amazing job and made me feel really comfortable"},{"name":"Ana Lopez","city":"Santa Clarita","text":"The staff were all very friendly and helpful. This was first time meeting my new Dentist he made me feel very comfortable"},{"name":"adrienne miley","city":"Santa Clarita","text":"Dr. Zaghi is INCREDIBLE! I am so absolutely thrilled with my new crowns. The staff is amazing."},{"name":"D J","city":"Bakersfield","text":"We had such a great experience. They could see us quickly and helped my 2 year old feel safe and comfortable!"},{"name":"Lillian Castaneda","city":"Santa Clarita","text":"The Dr thoroughly explained the plan of action, was patient and highly professional. The staff were so helpful and supportive."},{"name":"Brianne Mullin","city":"Bakersfield","text":"Dr Zaghi is amazing and fast! Got everything done in a timely manner! The staff is so nice and great with their patients."},{"name":"Mary Alvarez","city":"Santa Clarita","text":"The staff is very friendly. They always greet you with a smile. The doctor is very kind in explaining the patient's condition."},{"name":"Hailey Flud","city":"Bakersfield","text":"Had a great experience! The lady at the front was so nice and helpful! They got me in and out!"},{"name":"Mike Rittenberg","city":"Santa Clarita","text":"Dr David explained everything and he was extremely competent and very aware of my needs and managing my pain."},{"name":"Stefanie D","city":"Santa Clarita","text":"Dr. Zaghi, has wonderful bedside manner, kind and very thorough."}]</script>
 <script src="assets/js/site.js" defer></script>
+<script src="assets/js/home.js" defer></script>
 </body>
 </html>

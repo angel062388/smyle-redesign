@@ -92,6 +92,11 @@
     faces.forEach(function (f) {
       out.push({ name: f.dataset.name || '', city: f.dataset.city || '', text: f.dataset.text || '' });
     });
+    /* Pages without the review cloud carry a small JSON block instead. */
+    if (!out.length) {
+      var alt = document.getElementById('fieldReviews');
+      if (alt) { try { out = JSON.parse(alt.textContent) || []; } catch (e) { out = []; } }
+    }
     return out;
   }
 

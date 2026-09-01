@@ -16,12 +16,12 @@
 <link rel="icon" href="assets/images/logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="assets/images/practice-hero.jpg" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,ital,wght@9..144,0,400;9..144,0,600;9..144,1,600&family=Nunito+Sans:wght@400;600;700;800&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="assets/css/base.css">
 <link rel="stylesheet" href="assets/css/layout.css">
 <link rel="stylesheet" href="assets/css/components.css">
 <link rel="stylesheet" href="assets/css/service.css">
+<link rel="stylesheet" href="assets/css/home.css">
 <link rel="stylesheet" href="assets/css/about.css">
 <script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"Dentist","name":"Smyle Dental Newhall","parentOrganization":{"@type":"Organization","name":"Smyle Dental"},"address":{"@type":"PostalAddress","streetAddress":"23754 Newhall Ave","addressLocality":"Santa Clarita","addressRegion":"CA","postalCode":"91321","addressCountry":"US"},"telephone":"+1-661-255-9200","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday","Friday"],"opens":"09:00","closes":"18:00"}],"employee":{"@type":"Person","name":"David Zaghi, DDS","jobTitle":"Dentist"}},{"@type":"Dentist","name":"Smyle Dental Bakersfield","parentOrganization":{"@type":"Organization","name":"Smyle Dental"},"address":{"@type":"PostalAddress","streetAddress":"2016 E Street","addressLocality":"Bakersfield","addressRegion":"CA","postalCode":"93301","addressCountry":"US"},"telephone":"+1-661-493-9040","openingHoursSpecification":[{"@type":"OpeningHoursSpecification","dayOfWeek":["Monday","Tuesday","Wednesday","Thursday"],"opens":"09:00","closes":"18:00"},{"@type":"OpeningHoursSpecification","dayOfWeek":"Friday","opens":"09:00","closes":"13:00"}],"employee":{"@type":"Person","name":"David Zaghi, DDS","jobTitle":"Dentist"}}]}</script>
 </head>
@@ -50,16 +50,16 @@
 
 <main id="main">
 
-  <section class="heroA">
-    <div class="shot">
-      <span class="mark">Two offices, one dentist</span>
-      <img src="assets/images/practice-hero.jpg" alt="A smiling woman in front of the Smyle lettering on the practice wall" width="1500" height="844" fetchpriority="high">
+  <section class="hero">
+    <div class="fieldclip" aria-hidden="true">
+      <div class="field" id="heroField" data-photos='["assets/images/practice-hero.jpg","assets/images/office-santa-clarita.jpg","assets/images/dr-david-zaghi.jpg"]'></div>
     </div>
-    <div class="panel">
-      <p class="crumb"><a href="index.html">Smyle Dental</a> &#47; <b>About Us</b></p>
-      <h1>Get to know <em>Smyle Dental</em></h1>
-      <p class="lede">Expert dental care with a warm, personal touch in a comfortable, relaxed setting. Dr. David Zaghi sees patients at two offices, in Bakersfield and Santa Clarita, and both run to the same standard.</p>
-      <div class="spacts">
+    <div class="scrim" aria-hidden="true"></div>
+    <div class="container">
+      <p class="kick">Your Smile Perfected</p>
+      <h1 id="heroHeadline">Get to know <em>Smyle Dental</em></h1>
+      <p class="sub">Expert dental care with a warm, personal touch in a comfortable, relaxed setting. Dr. David Zaghi sees patients at two offices, in Bakersfield and Santa Clarita, and both run to the same standard.</p>
+      <div class="acts">
         <button class="btn btn-y" type="button" data-book>Book a visit</button>
         <a class="btn btn-line" href="#doctor">Meet Dr. Zaghi</a>
       </div>
@@ -560,5 +560,6 @@
 
 <script type="application/json" id="officesData">{"sc":{"name":"Santa Clarita","gname":"Smyle Dental Newhall","addr":"23754 Newhall Ave","city":"Santa Clarita, CA 91321","tel":"(661) 255-9200","href":"tel:+16612559200"},"bk":{"name":"Bakersfield","gname":"Smyle Dental Bakersfield","addr":"2016 E Street","city":"Bakersfield, CA 93301","tel":"(661) 493-9040","href":"tel:+16614939040"}}</script>
 <script src="assets/js/site.js" defer></script>
+<script src="assets/js/home.js" defer></script>
 </body>
 </html>
