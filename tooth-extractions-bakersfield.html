@@ -1454,7 +1454,7 @@ const OFFICES = {
         map:'https://maps.google.com/?q=23754+Newhall+Ave+Santa+Clarita+CA+91321' },
   bk: { key:'bk', slug:'bakersfield', name:'Bakersfield',
         addr:'2016 E Street', city:'Bakersfield, CA 93301',
-        tel:'(661) 324-1000', href:'tel:+16613241000',
+        tel:'(661) 493-9040', href:'tel:+16614939040',
         map:'https://maps.google.com/?q=2016+E+Street+Bakersfield+CA+93301' }
 };
 
@@ -1497,7 +1497,7 @@ const FAQS = [
   {q:'I am nervous about the dentist. What do you do differently?', a:'We book first visits longer than a standard appointment so there is no rush, we explain each step before it happens, and we stop as soon as you signal. Nothing is done that you have not agreed to first.'},
   {q:'Can you see me today if I am in pain?', a:'Both offices keep same-day slots for emergencies. Call the office nearest you as early in the day as you can and we will get you in.'},
   {q:'What is the new patient special?', a:'A comprehensive exam and a full set of x-rays for $99, available at both Santa Clarita and Bakersfield. Mention it when you book.'},
-  {q:'Which office should I go to?', a:'Whichever is closer. Santa Clarita is on Newhall Avenue and Bakersfield is on E Street. Both are open Monday to Friday, 9am to 6pm, with the same dentist and the same standard of care.'}
+  {q:'Which office should I go to?', a:'Whichever is closer. Santa Clarita is on Newhall Avenue and Bakersfield is on E Street. Santa Clarita is open Monday to Friday, 9am to 6pm; Bakersfield runs Monday to Thursday, 9am to 6pm and Friday, 9am to 1pm, with the same dentist and the same standard of care at both.'}
 ];
 
 /* real Google reviews, scraped from the Newhall listing */
@@ -1515,7 +1515,7 @@ OFFICES.bk.photo = IMG.bak;    /* client file named Bakersfield.webp */
 OFFICES.bk.count = N_BAK;
 
 OFFICES.sc.hours = 'Mon to Fri, 9am to 6pm';
-OFFICES.bk.hours = 'Mon to Fri, 9am to 6pm';
+OFFICES.bk.hours = 'Mon to Thu 9am to 6pm, Fri 9am to 1pm';
 
 const mapFrame = (o) => `<iframe class="gmap" src="${o.embed}" title="Map of ${o.gname}" loading="lazy" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>`;
 
@@ -1590,7 +1590,7 @@ function footerCols(){
     <div><h4>Bakersfield</h4><ul>
       <li>${o.bk.addr}</li><li>${o.bk.city}</li>
       <li><a href="${o.bk.href}"><b style="color:#fff">${o.bk.tel}</b></a></li>
-      <li>Mon to Fri, 9am to 6pm</li></ul></div>
+      <li>Mon to Thu, 9am to 6pm</li><li>Fri, 9am to 1pm</li></ul></div>
     <div><h4>Patients</h4><ul>
       <li><a href="#">New patient forms</a></li>
       <li><a href="#">Insurance &amp; payment</a></li>
