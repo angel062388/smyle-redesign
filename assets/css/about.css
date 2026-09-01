@@ -1,7 +1,7 @@
 /* ==========================================================================
    Smyle Dental — about page
-   Story column with a sticky at-a-glance card. The split hero comes from
-   service.css and everything else reuses the shared components.
+   Story column with an at-a-glance card and two office-map embeds. The split
+   hero comes from service.css; everything else reuses the shared components.
    ========================================================================== */
 
 /* Mark the page the visitor is on. layout.css draws the underline on hover;
@@ -29,6 +29,23 @@
 }
 .story .prose p:last-child { margin-bottom: 0; }
 .story .prose .spacts { margin-top: 28px; }
+
+/* Two office maps close the column — the same GBP embeds the service
+   prototypes carry, in svccard-style shells. */
+.story .maps {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: 28px;
+}
+.story .mapcard {
+  background: #fff;
+  border: 1px solid rgba(30, 27, 22, .12);
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(30, 27, 22, .05);
+}
+.story .mapcard iframe { display: block; width: 100%; height: 232px; border: 0; }
 
 /* ------------------------------------------------- at-a-glance card -- */
 /* Same shell as the treatment preview card, so the two read as one family. */
@@ -81,4 +98,8 @@
 @media (max-width: 1000px) {
   .story { grid-template-columns: 1fr; gap: 30px; }
   .factcard { max-width: 520px; }
+}
+
+@media (max-width: 560px) {
+  .story .maps { grid-template-columns: 1fr; }
 }
