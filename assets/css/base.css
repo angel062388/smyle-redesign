@@ -1,0 +1,170 @@
+/* ==========================================================================
+   Smyle Dental — base
+   Reset, design tokens, container, typography, buttons, shared motion.
+   ========================================================================== */
+
+/* --------------------------------------------------------------- reset -- */
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+html,
+body { margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; }
+
+/* height:auto keeps the intrinsic width/height attributes from fighting the
+   aspect-ratio and object-fit rules further down. */
+img { max-width: 100%; height: auto; display: block; }
+a { text-decoration: none; color: inherit; }
+button { font: inherit; cursor: pointer; }
+
+/* -------------------------------------------------------------- tokens -- */
+:root {
+  /* brand */
+  --yellow: #FFD900;
+  --yellow-deep: #FFB500;
+  --yellow-soft: #FFF3B0;
+
+  /* ink scale */
+  --ink: #14181D;
+  --ink3: #1E1B16;
+  --mid: #5C554A;
+  --soft: #8A7F6C;
+  --faint: #B5AB97;
+  --cream: #FAF7F1;
+
+  /* layout */
+  --container: 1440px;
+  --gutter: 40px;
+  --gutter-sm: 22px;
+
+  /* motion */
+  --e-out: cubic-bezier(.22, 1, .36, 1);
+}
+
+body {
+  background: var(--cream);
+  color: var(--ink3);
+  font-family: "Nunito Sans", system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+/* ----------------------------------------------------------- container -- */
+.container {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding: 0 var(--gutter);
+}
+
+/* ---------------------------------------------------------- typography -- */
+h2 {
+  font-family: Fraunces, Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(30px, 3.6vw, 46px);
+  line-height: 1.1;
+  letter-spacing: -.025em;
+  margin: 0 0 18px;
+}
+h2 em { font-style: italic; color: var(--yellow-deep); }
+
+.eyebrow {
+  font-size: 12.5px;
+  font-weight: 800;
+  letter-spacing: .17em;
+  text-transform: uppercase;
+  color: var(--soft);
+  margin: 0 0 16px;
+}
+
+.lede {
+  font-size: 18px;
+  line-height: 1.7;
+  color: var(--mid);
+  max-width: 58ch;
+  margin: 0 0 44px;
+}
+
+/* ----------------------------------------------------------- sections -- */
+.section {
+  padding: 92px 0;
+  overflow-x: clip;
+}
+/* Clear the sticky header when an in-page link jumps to a section. */
+main > section[id] { scroll-margin-top: 120px; }
+.section--rule { border-top: 1px solid rgba(30, 27, 22, .11); }
+.section--flush { padding-top: 0; }
+
+/* ------------------------------------------------------------ buttons -- */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  border: 0;
+  border-radius: 999px;
+  padding: 14px 26px;
+  font-weight: 700;
+  font-size: 15px;
+  transition: transform .18s var(--e-out), background-color .18s ease-out, box-shadow .18s ease-out;
+}
+.btn:hover { transform: translateY(-2px); }
+.btn:active { transform: translateY(0); }
+
+.btn-ink { background: var(--ink3); color: var(--cream); }
+.btn-ink:hover { background: #332e26; box-shadow: 0 8px 20px rgba(30, 27, 22, .24); }
+
+.btn-y { background: var(--yellow); color: var(--ink3); box-shadow: 0 5px 16px rgba(255, 181, 0, .4); }
+.btn-y:hover { background: var(--yellow-deep); }
+
+.btn-line { background: transparent; color: var(--ink3); box-shadow: inset 0 0 0 2px var(--ink3); }
+.btn-line:hover { background: var(--ink3); color: var(--cream); box-shadow: inset 0 0 0 2px var(--ink3); }
+
+.btn-sm { padding: 11px 20px; font-size: 14px; }
+
+/* ---------------------------------------------------------- utilities -- */
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+}
+
+.skip-link {
+  position: absolute;
+  left: 50%;
+  top: -60px;
+  transform: translateX(-50%);
+  z-index: 200;
+  background: var(--ink3);
+  color: var(--cream);
+  padding: 12px 22px;
+  border-radius: 0 0 12px 12px;
+  font-weight: 700;
+  font-size: 14px;
+  transition: top .2s var(--e-out);
+}
+.skip-link:focus { top: 0; }
+
+/* ------------------------------------------------------------- motion -- */
+@keyframes rise { from { opacity: 0; transform: translate3d(0, 16px, 0); } to { opacity: 1; transform: none; } }
+@keyframes fade { from { opacity: 0; } to { opacity: 1; } }
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: .01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ------------------------------------------------------------ mobile -- */
+@media (max-width: 940px) {
+  :root { --gutter: var(--gutter-sm); }
+  .section { padding: 66px 0; }
+}

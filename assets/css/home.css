@@ -1,0 +1,186 @@
+/* ==========================================================================
+   Smyle Dental — homepage
+   Hero: typewriter headline over a 3D field of review cards drifting past
+   the camera, with a hand-drawn marker sweep under the city names.
+   ========================================================================== */
+
+.hero {
+  position: relative;
+  min-height: 82vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: clip;
+  padding: 70px 0 90px;
+}
+
+/* Plain clipper: no 3D context here, so overflow actually clips the field. */
+.hero .fieldclip {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+  contain: paint;
+}
+.hero .field {
+  position: absolute;
+  inset: 0;
+  perspective: 1100px;
+  perspective-origin: 50% 46%;
+  transform-style: preserve-3d;
+  pointer-events: none;
+}
+
+.fcard {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  width: 196px;
+  border-radius: 13px;
+  padding: 15px 16px;
+  background: #fff;
+  box-shadow: 0 16px 40px rgba(30, 27, 22, .13);
+  transform-style: preserve-3d;
+  will-change: transform, opacity;
+  /* static fallback for reduced motion / before the field starts */
+  transform: translate3d(calc(var(--x) * 1px - 50%), calc(var(--y) * 1px - 50%), -420px)
+             rotateX(var(--rx)) rotateY(var(--ry)) rotateZ(var(--rz));
+  opacity: .82;
+}
+.fcard.photo { padding: 0; overflow: hidden; width: 172px; }
+.fcard.photo img { width: 100%; height: 118px; object-fit: cover; display: block; }
+.fcard .st { color: var(--yellow-deep); font-size: 11px; letter-spacing: 1.5px; margin-bottom: 6px; }
+.fcard q { display: block; font-size: 12.5px; line-height: 1.45; color: var(--ink3); quotes: none; }
+.fcard cite {
+  display: block;
+  font-style: normal;
+  font-size: 10.5px;
+  font-weight: 800;
+  color: var(--soft);
+  margin-top: 8px;
+  letter-spacing: .03em;
+}
+.fcard .cap { padding: 9px 12px 11px; font-size: 11px; font-weight: 700; color: var(--soft); }
+
+@keyframes fly {
+  0%   { opacity: 0; transform: translate3d(calc(var(--x) * 1px - 50%), calc(var(--y) * 1px - 50%), -1900px) rotateX(var(--rx)) rotateY(var(--ry)) rotateZ(var(--rz)); }
+  10%  { opacity: .95; }
+  82%  { opacity: .95; }
+  100% { opacity: 0; transform: translate3d(calc(var(--x) * 1.5px - 50%), calc(var(--y) * 1.5px - 50%), 470px) rotateX(var(--rx)) rotateY(var(--ry)) rotateZ(var(--rz)); }
+}
+.hero .field.run .fcard { animation: fly var(--dur) linear var(--delay) infinite; }
+
+/* A radial wash of the page ground keeps the headline readable over the field. */
+.hero .scrim {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  pointer-events: none;
+  background: radial-gradient(ellipse 54% 47% at 50% 47%,
+              var(--cream) 50%, rgba(250, 247, 241, .92) 68%, rgba(250, 247, 241, 0) 88%);
+}
+
+.hero .container { position: relative; z-index: 3; text-align: center; }
+
+/* The brand line sits on its own plate: 19px loose text inside a moving field
+   read as a caption next to an 80px headline, and the plate also lifts it off
+   the cards drifting behind it. */
+.hero .kick {
+  display: inline-flex;
+  align-items: center;
+  gap: 11px;
+  font-family: Fraunces, Georgia, serif;
+  font-style: italic;
+  font-weight: 600;
+  font-size: clamp(18px, 1.55vw, 23px);
+  line-height: 1;
+  color: var(--ink);
+  background: var(--yellow-soft);
+  padding: 11px 24px;
+  border-radius: 999px;
+  margin: 0 0 24px;
+  letter-spacing: .004em;
+  box-shadow: 0 4px 16px rgba(30, 27, 22, .09), inset 0 0 0 1.5px rgba(255, 181, 0, .55);
+}
+.hero .kick::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border-radius: 50%;
+  flex: none;
+  background: var(--yellow-deep);
+  box-shadow: 0 0 0 4px rgba(255, 181, 0, .22);
+}
+
+.hero h1 {
+  font-family: Fraunces, Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(38px, 6vw, 80px);
+  line-height: 1.04;
+  letter-spacing: -.03em;
+  margin: 0 auto 24px;
+  max-width: 19ch;
+}
+.hero h1 em { font-style: italic; color: var(--yellow-deep); }
+
+.caret {
+  display: inline-block;
+  width: 3px;
+  height: .82em;
+  background: var(--yellow-deep);
+  margin-left: 5px;
+  vertical-align: -.06em;
+  animation: blink 1s steps(1) infinite;
+}
+@keyframes blink { 0%, 50% { opacity: 1; } 50.01%, 100% { opacity: 0; } }
+
+/* Marker underline. The stroke is an SVG path drawn with stroke-dashoffset so
+   it sweeps in left to right once the line has settled. The span is
+   inline-block so the stroke can size itself to the word. */
+.hero h1 .mk { position: relative; display: inline-block; }
+.hero h1 .mk .mkline {
+  position: absolute;
+  left: -.04em;
+  bottom: .005em;
+  width: 108%;
+  height: .3em;
+  overflow: visible;
+  pointer-events: none;
+  z-index: -1;
+}
+.hero h1 .mk .mkline path {
+  fill: none;
+  stroke: var(--yellow);
+  stroke-width: 10;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-dashoffset: 9999;
+}
+
+.hero .sub {
+  font-size: 18.5px;
+  line-height: 1.68;
+  color: var(--mid);
+  max-width: 52ch;
+  margin: 0 auto 30px;
+}
+.hero .acts { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+
+/* The card field drifts behind the CTAs, and the outline pill is transparent
+   everywhere else on the site, so review text was reading straight through
+   "Meet Dr. Zaghi". Give it the page ground here — identical against cream,
+   opaque against anything passing behind it. */
+.hero .acts .btn-line { background: var(--cream); }
+.hero .acts .btn-line:hover { background: var(--ink3); }
+
+/* ------------------------------------------------------------ responsive -- */
+@media (max-width: 940px) {
+  .hero { min-height: 74vh; padding: 48px 0 70px; }
+  .fcard { width: 150px; }
+}
+
+@media (max-width: 560px) {
+  .hero h1 .mk .mkline { height: .2em; bottom: .01em; }
+  .hero h1 .mk .mkline path { stroke-width: 9; }
+}

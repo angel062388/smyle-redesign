@@ -1,0 +1,290 @@
+/* ==========================================================================
+   Smyle Dental — layout
+   Sticky header, primary navigation, mobile drawer, footer.
+   ========================================================================== */
+
+/* -------------------------------------------------------------- header -- */
+.site-header {
+  padding: 14px 0;
+  position: sticky;
+  top: 0;
+  z-index: 60;
+  background: rgba(250, 247, 241, .86);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  transition: padding .25s var(--e-out), box-shadow .25s ease-out;
+}
+.site-header .container {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+}
+
+/* The wordmark is a single-colour yellow SVG. On cream it needs darkening to
+   hold contrast, which is what the filter does — it is not a colour change. */
+.site-header .logo {
+  height: 88px;
+  width: auto;
+  filter: brightness(.62) contrast(1.15) saturate(1.2);
+  transition: height .25s var(--e-out);
+}
+
+/* Full size at rest, compact once the page scrolls, so the big logo never
+   eats the viewport on the way down. */
+.site-header.is-stuck { padding: 9px 0; box-shadow: 0 6px 24px rgba(30, 27, 22, .08); }
+.site-header.is-stuck .logo { height: 58px; }
+
+/* ---------------------------------------------------------- main nav -- */
+.nav-main {
+  display: flex;
+  gap: 26px;
+  margin-left: auto;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--mid);
+}
+.nav-main a { position: relative; transition: color .16s ease-out; }
+.nav-main a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 100%;
+  bottom: -5px;
+  height: 1.5px;
+  background: var(--ink3);
+  transition: right .26s var(--e-out);
+}
+.nav-main a:hover { color: var(--ink3); }
+.nav-main a:hover::after { right: 0; }
+
+/* Services is the one item with children. */
+.nav-main .drop { position: relative; display: inline-flex; }
+.nav-main .drop > a { display: inline-flex; align-items: center; gap: 5px; }
+.nav-main .drop .cv { font-style: normal; font-size: 11px; line-height: 1; transition: transform .2s var(--e-out); }
+.nav-main .drop:hover .cv { transform: translateY(2px); }
+.nav-main .menu {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-6px);
+  padding-top: 16px;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 70;
+  transition: opacity .18s var(--e-out), transform .18s var(--e-out);
+}
+.nav-main .drop:hover .menu,
+.nav-main .drop:focus-within .menu { opacity: 1; visibility: visible; transform: translateX(-50%) translateY(0); }
+.nav-main .navcard {
+  display: block;
+  min-width: 264px;
+  background: #fff;
+  border: 1px solid rgba(30, 27, 22, .10);
+  border-radius: 18px;
+  box-shadow: 0 18px 44px rgba(30, 27, 22, .13);
+  padding: 18px 20px 8px;
+}
+.nav-main .navcard .city {
+  font-size: 12px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  font-weight: 700;
+  color: var(--soft);
+  margin: 0 0 8px;
+}
+.nav-main .navcard a {
+  display: block;
+  padding: 10px 0;
+  font-size: 15.5px;
+  font-weight: 600;
+  color: var(--ink3);
+  border-bottom: 1px solid rgba(30, 27, 22, .08);
+}
+.nav-main .navcard a:last-child { border-bottom: 0; }
+.nav-main .navcard a::after { display: none; }
+.nav-main .navcard a:hover { color: var(--yellow-deep); }
+
+.header-cta { margin-left: 6px; }
+
+/* ------------------------------------------------------ mobile drawer -- */
+.nav-toggle {
+  display: none;
+  margin-left: auto;
+  width: 46px;
+  height: 46px;
+  border: 0;
+  border-radius: 14px;
+  background: rgba(30, 27, 22, .06);
+  color: var(--ink3);
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 5px;
+}
+.nav-toggle span {
+  display: block;
+  width: 20px;
+  height: 2px;
+  background: currentColor;
+  border-radius: 2px;
+  transition: transform .24s var(--e-out), opacity .18s ease-out;
+}
+.nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+.nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+.nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+.drawer-scrim {
+  position: fixed;
+  inset: 0;
+  z-index: 80;
+  background: rgba(16, 18, 22, .5);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .24s ease-out, visibility .24s;
+}
+.drawer-scrim[data-open] { opacity: 1; visibility: visible; }
+
+.drawer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: min(360px, 88vw);
+  z-index: 90;
+  background: var(--cream);
+  box-shadow: -20px 0 60px rgba(30, 27, 22, .28);
+  transform: translateX(100%);
+  transition: transform .3s var(--e-out);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+.drawer[data-open] { transform: none; }
+.drawer .drawer-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 22px;
+  border-bottom: 1px solid rgba(30, 27, 22, .12);
+}
+.drawer .drawer-head .logo { height: 52px; width: auto; filter: brightness(.62) contrast(1.15) saturate(1.2); }
+.drawer .drawer-close {
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(30, 27, 22, .07);
+  color: var(--ink3);
+  font-size: 17px;
+  line-height: 1;
+}
+.drawer nav { padding: 12px 22px 22px; }
+.drawer nav > a,
+.drawer .sub-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  width: 100%;
+  padding: 15px 0;
+  border: 0;
+  border-bottom: 1px solid rgba(30, 27, 22, .1);
+  background: transparent;
+  font-family: inherit;
+  font-size: 17px;
+  font-weight: 700;
+  color: var(--ink3);
+  text-align: left;
+}
+.drawer .sub-toggle .cv { font-size: 12px; color: var(--soft); transition: transform .24s var(--e-out); }
+.drawer .sub-toggle[aria-expanded="true"] .cv { transform: rotate(180deg); }
+.drawer .submenu {
+  display: none;
+  padding: 4px 0 10px 14px;
+}
+.drawer .submenu[data-open] { display: block; }
+.drawer .submenu .city {
+  font-size: 11.5px;
+  letter-spacing: .15em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: var(--soft);
+  margin: 12px 0 4px;
+}
+.drawer .submenu a {
+  display: block;
+  padding: 10px 0;
+  font-size: 15.5px;
+  font-weight: 600;
+  color: var(--mid);
+}
+.drawer .drawer-foot {
+  margin-top: auto;
+  padding: 22px;
+  border-top: 1px solid rgba(30, 27, 22, .12);
+  display: grid;
+  gap: 10px;
+}
+.drawer .drawer-foot .btn { width: 100%; }
+
+body.nav-open { overflow: hidden; }
+
+/* -------------------------------------------------------------- footer -- */
+.site-footer {
+  background: var(--ink3);
+  color: rgba(250, 247, 241, .6);
+  padding: 64px 0 32px;
+  font-size: 14.5px;
+}
+.site-footer .logo { height: 76px; width: auto; margin-bottom: 18px; }
+.site-footer .cols {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1fr;
+  gap: 38px;
+}
+.site-footer h4 {
+  color: var(--cream);
+  font-family: Fraunces, Georgia, serif;
+  font-size: 17px;
+  font-weight: 600;
+  margin: 0 0 14px;
+  letter-spacing: -.01em;
+}
+.site-footer p { margin: 0 0 6px; line-height: 1.6; }
+.site-footer p:last-of-type { margin-bottom: 0; }
+.site-footer ul { padding: 0; margin: 0; }
+.site-footer li { list-style: none; margin-bottom: 10px; }
+.site-footer li b { color: #fff; }
+.site-footer a:hover { color: var(--yellow); }
+.site-footer .legal {
+  margin-top: 40px;
+  padding-top: 22px;
+  border-top: 1px solid rgba(255, 255, 255, .12);
+  display: flex;
+  justify-content: space-between;
+  gap: 18px;
+  flex-wrap: wrap;
+  font-size: 13px;
+}
+
+/* ------------------------------------------------------------ mobile -- */
+@media (max-width: 1100px) {
+  .nav-main { gap: 20px; font-size: 14.5px; }
+  .site-header .logo { height: 74px; }
+}
+
+@media (max-width: 940px) {
+  .nav-main,
+  .header-cta { display: none; }
+  .nav-toggle { display: flex; }
+  .site-header { padding: 10px 0; }
+  .site-header .logo { height: 66px; }
+  .site-header.is-stuck .logo { height: 52px; }
+  .site-footer .cols { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 560px) {
+  .site-footer .cols { grid-template-columns: 1fr; gap: 28px; }
+}
