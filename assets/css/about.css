@@ -10,11 +10,14 @@
 .nav-main a[aria-current="page"]::after { right: 0; }
 
 /* ------------------------------------------------------------- story -- */
+/* The card runs taller than the copy, so the copy centers against it the way
+   the doctor quote centers its portrait. The pill row under the last paragraph
+   finishes the column so the section reads balanced, not short. */
 .story {
   display: grid;
   grid-template-columns: 1fr 420px;
   gap: 44px;
-  align-items: start;
+  align-items: center;
   margin-top: 10px;
 }
 .story .prose p {
@@ -25,12 +28,11 @@
   max-width: 66ch;
 }
 .story .prose p:last-child { margin-bottom: 0; }
+.story .prose .spacts { margin-top: 28px; }
 
 /* ------------------------------------------------- at-a-glance card -- */
 /* Same shell as the treatment preview card, so the two read as one family. */
 .factcard {
-  position: sticky;
-  top: 116px;
   background: #fff;
   border: 1px solid rgba(30, 27, 22, .12);
   border-radius: 22px;
@@ -78,5 +80,5 @@
 /* ------------------------------------------------------------ responsive -- */
 @media (max-width: 1000px) {
   .story { grid-template-columns: 1fr; gap: 30px; }
-  .factcard { position: static; max-width: 520px; }
+  .factcard { max-width: 520px; }
 }
