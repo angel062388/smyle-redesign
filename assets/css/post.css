@@ -8,6 +8,15 @@
 
 .post-col { max-width: 820px; margin: 0 auto; }
 
+/* Article variant of the homepage hero: same field and typing, sized for
+   long post titles and a little shorter than a landing hero. */
+.hero.hero--post { min-height: 64vh; }
+.hero.hero--post h1 {
+  font-size: clamp(30px, 3.8vw, 52px);
+  max-width: 26ch;
+}
+.hero.hero--post .postmeta { margin: 0 0 14px; }
+
 /* ------------------------------------------------------------ title block -- */
 .post-hero { padding: 64px 0 0; }
 .post-hero h1 {
@@ -24,6 +33,7 @@
 
 .post-featured { margin: 34px 0 0; }
 .post-featured img { width: 100%; height: auto; border-radius: 22px; display: block; }
+.post-main .post-featured { margin: 0 0 34px; }
 
 /* ------------------------------------------------------------ article body -- */
 .post-body { padding: 44px 0 72px; }
@@ -109,7 +119,13 @@
 .post-side .loc .acts { margin-top: 14px; }
 
 /* ------------------------------------------------------------ responsive -- */
-@media (max-width: 1000px) {
+/* The rail stays on the right as long as the screen can carry two columns;
+   only true phone/tablet-portrait widths drop it below the article. */
+@media (max-width: 1240px) {
+  .post-layout { grid-template-columns: minmax(0, 1fr) 320px; gap: 30px; }
+}
+
+@media (max-width: 820px) {
   .post-layout { grid-template-columns: 1fr; }
   .post-side {
     position: static;
