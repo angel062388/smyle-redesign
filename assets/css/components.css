@@ -921,6 +921,10 @@
 .mapgo .ar { transition: transform .18s var(--e-out); }
 .mapgo:hover .ar { transform: translateX(3px); }
 
+/* A map card below the treatment index fills the column beside the
+   taller preview (city hub pages). */
+.svcpick .mapcard { margin-top: 28px; }
+
 /* Full-width pair of map cards (Contact, Our Locations). */
 .findus-wide .maps {
   display: grid;
