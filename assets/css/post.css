@@ -75,7 +75,55 @@
 
 .post-cta { clear: both; display: flex; gap: 12px; flex-wrap: wrap; padding-top: 26px; }
 
+/* ------------------------------------------------------- office sidebar -- */
+/* The article rides beside a sticky rail of the two office cards, so the
+   right side never sits empty and the cards follow the reader. */
+.post-layout {
+  display: grid;
+  grid-template-columns: minmax(0, 820px) 360px;
+  justify-content: center;
+  gap: 48px;
+  align-items: start;
+}
+.post-side {
+  position: sticky;
+  top: 108px;
+  display: grid;
+  gap: 18px;
+  max-height: calc(100vh - 124px);
+  overflow-y: auto;
+}
+.post-side .loc .clinic { height: 140px; }
+.post-side .loc .bd { padding: 18px 20px 20px; }
+.post-side .loc h3 { font-size: 20px; }
+.post-side .loc .meta { font-size: 14px; margin-bottom: 3px; }
+.post-side .loc .hrs { font-size: 12px; margin-top: 8px; }
+.post-side .gmap {
+  width: 100%;
+  height: 140px;
+  border: 0;
+  border-radius: 14px;
+  display: block;
+  margin: 12px 0 2px;
+}
+.post-side .loc .acts { margin-top: 14px; }
+
 /* ------------------------------------------------------------ responsive -- */
+@media (max-width: 1000px) {
+  .post-layout { grid-template-columns: 1fr; }
+  .post-side {
+    position: static;
+    max-height: none;
+    overflow: visible;
+    grid-template-columns: 1fr 1fr;
+    margin-top: 44px;
+  }
+}
+
+@media (max-width: 640px) {
+  .post-side { grid-template-columns: 1fr; }
+}
+
 @media (max-width: 700px) {
   .post-body figure.alignleft,
   .post-body img.alignleft {
