@@ -1,0 +1,87 @@
+/* ==========================================================================
+   Smyle Dental — blog article
+   A readable article column: title block, featured image, long-form body.
+   Body HTML comes verbatim from the published WordPress post, so the
+   WordPress image classes (.alignleft, 480px) are styled here to match
+   the live blog's spec.
+   ========================================================================== */
+
+.post-col { max-width: 820px; margin: 0 auto; }
+
+/* ------------------------------------------------------------ title block -- */
+.post-hero { padding: 64px 0 0; }
+.post-hero h1 {
+  font-family: Fraunces, Georgia, serif;
+  font-weight: 600;
+  font-size: clamp(32px, 4vw, 50px);
+  line-height: 1.1;
+  letter-spacing: -.03em;
+  color: var(--ink3);
+  margin: 0 0 16px;
+  text-wrap: balance;
+}
+.post-hero .lede { max-width: none; margin-bottom: 0; font-size: 17px; }
+
+.post-featured { margin: 34px 0 0; }
+.post-featured img { width: 100%; height: auto; border-radius: 22px; display: block; }
+
+/* ------------------------------------------------------------ article body -- */
+.post-body { padding: 44px 0 72px; }
+.post-body p {
+  font-size: 16.5px;
+  line-height: 1.78;
+  color: var(--mid);
+  margin: 0 0 18px;
+}
+.post-body strong { color: var(--ink3); }
+.post-body a {
+  color: var(--ink3);
+  font-weight: 700;
+  border-bottom: 2px solid var(--yellow);
+  padding-bottom: 1px;
+}
+.post-body a:hover { border-bottom-color: var(--yellow-deep); }
+.post-body h2 {
+  clear: both;
+  font-size: clamp(24px, 2.6vw, 32px);
+  margin: 40px 0 14px;
+}
+.post-body h3 {
+  font-family: Fraunces, Georgia, serif;
+  font-weight: 600;
+  font-size: 21px;
+  letter-spacing: -.015em;
+  color: var(--ink3);
+  margin: 26px 0 10px;
+}
+.post-body ul { margin: 0 0 18px; padding-left: 24px; }
+.post-body li { font-size: 16px; line-height: 1.7; color: var(--mid); margin: 7px 0; }
+
+/* The live blog's left-aligned body images: 480px, floated, with the same
+   breathing room the site's Customizer CSS gives them. */
+.post-body figure.alignleft,
+.post-body img.alignleft {
+  float: left;
+  margin: 6px 28px 18px 0;
+}
+.post-body figure.alignleft { max-width: 480px; }
+.post-body figure.alignleft img {
+  width: 480px;
+  max-width: 100%;
+  height: auto;
+  border-radius: 18px;
+  display: block;
+}
+
+.post-cta { clear: both; display: flex; gap: 12px; flex-wrap: wrap; padding-top: 26px; }
+
+/* ------------------------------------------------------------ responsive -- */
+@media (max-width: 700px) {
+  .post-body figure.alignleft,
+  .post-body img.alignleft {
+    float: none;
+    margin: 0 0 18px;
+  }
+  .post-body figure.alignleft { max-width: 100%; }
+  .post-body figure.alignleft img { width: 100%; }
+}
